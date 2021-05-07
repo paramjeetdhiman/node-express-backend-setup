@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://paramjeet:paramjeet@contactkeeper.ei6zk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://paramjeet:paramjeet@contactkeeper.ei6zk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "jwtSecret": "secret"
 }

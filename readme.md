@@ -82,3 +82,11 @@
             });
 
             module.exports = mongoose.model("user", UserScheme);
+
+
+    /// hash the password or encrypt
+      const salt = await bcrypt.genSalt(10); //how secure the pswd
+      user.password = await bcrypt.hash(password, salt);
+      await user.save();
+
+#### JWT
