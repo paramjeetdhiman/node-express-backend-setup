@@ -46,3 +46,39 @@
             - contacts.js
             - users.js
 
+    - create a folder config/
+
+        - defaults.json
+            - global variables
+            - ex: mongo uri
+
+        - db.js
+            - where we connect our mongo database
+
+### start with modals
+
+    - create scheme for User - camelcase !important
+
+            const mongoose = require("mongoose");
+
+            const UserScheme = mongoose.Schema({
+            name: {
+                type: String,
+                required: true,
+            },
+            email: {
+                type: String,
+                required: true,
+                unique: true,
+            },
+            password: {
+                type: String,
+                required: true,
+            },
+            date: {
+                type: Date,
+                default: Date.now(),
+            },
+            });
+
+            module.exports = mongoose.model("user", UserScheme);
