@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { check, validationResult } = require("express-validator/check");
-const User = require("../modals/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
+const { check, validationResult } = require("express-validator/check");
+const User = require("../modals/User");
 
 /// @route      POST api/users
 /// @desc       Register a user
@@ -48,7 +48,7 @@ router.post(
       user.password = await bcrypt.hash(password, salt);
       await user.save();
 
-      //// JWT 
+      //// JWT
       const payload = {
         user: {
           id: user.id,
@@ -56,6 +56,7 @@ router.post(
       };
 
       const secret = config.get("jwtSecret");
+
       jwt.sign(
         payload,
         secret,
